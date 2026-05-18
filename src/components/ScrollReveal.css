@@ -1,0 +1,22 @@
+.reveal-wrapper {
+  opacity: 0;
+  transform: translateY(50px);
+  visibility: hidden;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, visibility, transform;
+}
+
+.reveal-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-wrapper {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}

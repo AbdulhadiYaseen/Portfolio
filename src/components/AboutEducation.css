@@ -1,0 +1,218 @@
+.education-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-timeline {
+  position: relative;
+  max-width: 900px; /* Wider timeline layout */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.edu-timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--glass-border);
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  margin-left: -1px;
+}
+
+.edu-timeline-item {
+  padding: 10px 0 40px 50px;
+  position: relative;
+}
+
+/* Base Dot */
+.edu-timeline-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--accent-blue);
+  border: 4px solid var(--bg-color);
+  border-radius: 50%;
+  left: 12px;
+  top: 25px;
+  z-index: 1;
+  box-shadow: 0 0 10px var(--accent-blue);
+}
+
+/* Featured University Dot - Bigger & Cyan Glow */
+.edu-timeline-dot.featured-dot {
+  width: 22px;
+  height: 22px;
+  left: 9px;
+  top: 22px;
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 15px var(--accent-cyan), 0 0 30px rgba(56, 189, 248, 0.4);
+}
+
+.edu-timeline-content {
+  width: 100%;
+}
+
+/* Featured University Card - Grander & Glowing */
+.edu-timeline-content.featured-card {
+  padding: 2.5rem;
+  border-color: rgba(56, 189, 248, 0.25);
+  background: linear-gradient(135deg, rgba(17, 17, 17, 0.95) 0%, rgba(13, 27, 42, 0.6) 100%);
+  border-left: 4px solid var(--accent-cyan);
+  box-shadow: var(--glass-shadow), 0 8px 32px rgba(56, 189, 248, 0.05);
+}
+
+.edu-timeline-content.featured-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: var(--glass-shadow), 0 15px 35px rgba(56, 189, 248, 0.15);
+}
+
+.edu-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.edu-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Icon Badge for Institutions */
+.edu-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: var(--accent-blue);
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.featured-card .edu-icon-badge {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: var(--accent-cyan);
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  font-size: 1.5rem;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.1);
+}
+
+.edu-title-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.edu-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.featured-card .edu-header h3 {
+  font-size: 1.55rem; /* Noticeably larger title */
+  background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.edu-date {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  white-space: nowrap;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+}
+
+.featured-card .edu-date {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
+}
+
+.edu-degree {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.featured-card .edu-degree {
+  color: var(--accent-cyan);
+  font-size: 1.15rem; /* Larger degree */
+  font-weight: 600;
+}
+
+/* Coursework Description for Other Items */
+.edu-coursework-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.coursework-container {
+  margin-top: 1.5rem;
+}
+
+.coursework-container strong {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.course-tag {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--accent-cyan);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.course-tag:hover {
+  background: var(--accent-blue);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 768px) {
+  .edu-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .featured-card {
+    padding: 2rem 1.5rem;
+  }
+}
