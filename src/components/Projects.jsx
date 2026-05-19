@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import enerlyticsImg from '../assets/Enerlytics.png';
-import tacticalTalkImg from '../assets/TacticalTalk.PNG';
+import tacticalTalkImg from '../assets/TacticalTalk.png';
 import airTravelImg from '../assets/AiR Travel.png';
 import './Projects.css';
 
