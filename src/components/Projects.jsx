@@ -1,23 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import enerlyticsImg from '../assets/Enerlytics.png';
+import tacticalTalkImg from '../assets/TacticalTalk.PNG';
+import airTravelImg from '../assets/AiR Travel.png';
 import './Projects.css';
 
 const Projects = () => {
   const projects = [
     {
-      title: "Enerlytics – AI-Driven Smart Electricity Management",
-      tech: ["Next.js", "Node.js", "Machine Learning (Bi-LSTM, TFT, XGBoost)"],
-      description: "Developed an AI-powered smart electricity forecasting platform predicting electricity consumption and optimizing billing for Karachi households. Built real-time forecasting and analytics with web scraping, weather-integrated insights, and slab-aware billing."
+      title: "Enerlytics — FYP",
+      tech: ["Next.js", "Node.js", "Machine Learning"],
+      description: "AI-powered electricity forecasting platform optimizing Karachi household billing. Built real-time weather-integrated analytics and slab-aware billing.",
+      image: enerlyticsImg,
+      link: "#"
     },
     {
-      title: "Tactical Talk – AI-Powered Football Tactics",
+      title: "Tactical Talk",
       tech: ["Next.js", "Node.js", "MongoDB", "OpenAI"],
-      description: "Developed a full-stack web app delivering tactical football insights via an AI chatbot powered by OpenAI. Integrated real-time football data (matches, lineups, stats) using web scraping and built a tactics library."
+      description: "Full-stack web app delivering tactical football insights via an AI chatbot. Integrated real-time data scraping and statistics library.",
+      image: tacticalTalkImg,
+      link: "#"
     },
     {
       title: "AiR Travel",
-      tech: ["Node.js", "Express.js", "MySQL", "Angular"],
-      description: "Designed a comprehensive Flight Management System streamlining flight scheduling, passenger check-ins, baggage tracking, and real-time flight status monitoring. Included AngularGuard for route protection."
+      tech: ["Angular", "Node.js", "MySQL"],
+      description: "Comprehensive Flight Management System streamlining flight scheduling, baggage tracking, check-ins, and live status monitoring.",
+      image: airTravelImg,
+      link: "#"
     }
   ];
 
@@ -32,28 +41,45 @@ const Projects = () => {
       >
         Projects
       </motion.h2>
+      
       <div className="projects-grid">
         {projects.map((project, index) => (
           <motion.div 
             key={index} 
-            className="project-card glass-card"
+            className="project-card"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
-            whileHover={{ 
-              scale: 1.03, 
-              boxShadow: "0 10px 40px rgba(37, 99, 235, 0.2)",
-              borderColor: "rgba(37, 99, 235, 0.4)"
-            }}
           >
-            <h3 className="project-title">{project.title}</h3>
-            <div className="project-tech">
-              {project.tech.map((tech, i) => (
-                <span key={i} className="tech-tag">{tech}</span>
-              ))}
+            {/* Full-bleed background image container */}
+            <div className="project-bg-container">
+              <img src={project.image} alt={project.title} className="project-bg-image" />
+              <div className="project-idle-overlay"></div>
             </div>
-            <p className="project-desc">{project.description}</p>
+
+            {/* Static Content (Always visible initially at the bottom) */}
+            <div className="project-static-content">
+              <h3 className="project-idle-title">{project.title}</h3>
+            </div>
+
+            {/* Hover Glassmorphism Slide-In details */}
+            <div className="project-hover-overlay">
+              <div className="project-hover-content">
+                <div className="project-tech-badges">
+                  {project.tech.map((tech, i) => (
+                    <span key={i} className="project-tech-tag">{tech}</span>
+                  ))}
+                </div>
+                
+                <h3 className="project-hover-title">{project.title}</h3>
+                <p className="project-hover-desc">{project.description}</p>
+                
+                <a href={project.link} className="project-cta-link">
+                  View Project <span className="arrow">➔</span>
+                </a>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
