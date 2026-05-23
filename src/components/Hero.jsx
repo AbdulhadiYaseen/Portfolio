@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import avatar from '../assets/avatar.png';
+import Hero3D from './Hero3D';
 import './Hero.css';
 
 const containerVariants = {
@@ -13,10 +13,10 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }
   }
 };
 
@@ -36,7 +36,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-container">
-      <motion.div 
+      <motion.div
         className="hero-content"
         variants={containerVariants}
         initial="hidden"
@@ -49,23 +49,23 @@ const Hero = () => {
           <span className="typewriter-cursor">|</span>
         </motion.h2>
         <motion.p variants={itemVariants} className="hero-summary">
-          Motivated computer science undergraduate eager to apply technical skills, 
-          solve challenging problems, and contribute to innovative projects. 
-          Passionate about continuous learning and driving impactful results.
+          Computer Science graduate with hands-on experience in full-stack development and AI-integrated applications. Seeking
+          a Software Development role where I can utilize my technical skills, solve real-world problems, and continuously learn
+          and grow within a collaborative environment.
         </motion.p>
         <motion.div variants={itemVariants} className="hero-buttons">
-          <motion.a 
-            href="#projects" 
+          <motion.a
+            href="#projects"
             className="btn btn-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             View My Work
           </motion.a>
-          <motion.a 
-            href="/AbdulHadi_Yaseen.pdf" 
-            className="btn btn-secondary" 
-            target="_blank" 
+          <motion.a
+            href="/AbdulHadi_Yaseen.pdf"
+            className="btn btn-secondary"
+            target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -75,20 +75,14 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="hero-image-container"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
       >
         <div className="hero-avatar-glow"></div>
-        <motion.div 
-          className="hero-avatar-frame"
-          whileHover={{ scale: 1.04, rotate: 1.5 }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-        >
-          <img src={avatar} alt="Abdulhadi Yaseen" className="hero-avatar-img" />
-        </motion.div>
+        <Hero3D />
       </motion.div>
     </section>
   );

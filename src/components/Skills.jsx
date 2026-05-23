@@ -1,53 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  SiTypescript, 
-  SiHtml5, 
-  SiCss3, 
-  SiReact, 
-  SiNextdotjs, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiMongodb, 
-  SiAngular, 
+  SiTypescript,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiAngular,
   SiJavascript,
-  SiPandas,
-  SiScikitlearn,
-  SiTailwindcss,
-  SiGit,
-  SiFastapi,
-  SiPostgresql,
-  SiMysql,
-  SiPython
+  SiCplusplus,
+  SiPlaywright,
+  SiSelenium
 } from 'react-icons/si';
-import { FaBrain, FaSpider } from 'react-icons/fa';
+import { FaBrain, FaSpider, FaRobot, FaJava } from 'react-icons/fa';
 import './Skills.css';
 
 const Skills = () => {
   const row1Skills = [
+    { name: "JavaScript", icon: <SiJavascript /> },
     { name: "TypeScript", icon: <SiTypescript /> },
     { name: "HTML5", icon: <SiHtml5 /> },
     { name: "CSS3", icon: <SiCss3 /> },
-    { name: "React.js", icon: <SiReact /> },
-    { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "Node.js", icon: <SiNodedotjs /> },
-    { name: "Express.js", icon: <SiExpress /> },
-    { name: "MongoDB", icon: <SiMongodb /> },
-    { name: "Angular", icon: <SiAngular /> },
-    { name: "JavaScript", icon: <SiJavascript /> }
+    { name: "Java", icon: <FaJava /> },
+    { name: "C / C++", icon: <SiCplusplus /> }
   ];
 
   const row2Skills = [
-    { name: "Pandas", icon: <SiPandas /> },
-    { name: "Scikit-learn", icon: <SiScikitlearn /> },
-    { name: "Tailwind", icon: <SiTailwindcss /> },
-    { name: "Git", icon: <SiGit /> },
-    { name: "FastAPI", icon: <SiFastapi /> },
-    { name: "PostgreSQL", icon: <SiPostgresql /> },
-    { name: "MySQL", icon: <SiMysql /> },
-    { name: "Machine Learning", icon: <FaBrain /> },
+    { name: "React.js", icon: <SiReact /> },
+    { name: "Next.js", icon: <SiNextdotjs /> },
+    { name: "Node.js", icon: <SiNodedotjs /> },
+    { name: "Angular", icon: <SiAngular /> },
+    { name: "Playwright", icon: <SiPlaywright /> },
+    { name: "Selenium", icon: <SiSelenium /> },
     { name: "Web Scraping", icon: <FaSpider /> },
-    { name: "Python", icon: <SiPython /> }
+    { name: "AI Integration", icon: <FaBrain /> },
+    { name: "Task Automation", icon: <FaRobot /> }
   ];
 
   // Double the arrays to ensure a seamless infinite scroll loop
@@ -73,7 +61,7 @@ const Skills = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        Technologies and tools I leverage to build highly scalable applications and intelligent AI models.
+        Web development with AI integration, web scraping, and task automation using modern JavaScript stacks.
       </motion.p>
 
       <div className="skills-marquee-container">

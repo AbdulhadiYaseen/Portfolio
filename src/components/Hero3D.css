@@ -1,0 +1,193 @@
+.hero-3d-wrapper {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.hero-3d-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Centering the Avatar precisely in the center of the orbit rings */
+.hero-3d-avatar-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Let clicks pass through to canvas */
+  z-index: 2;
+}
+
+/* Glassmorphic border, high-tech holographic casing */
+.hero-3d-avatar-glass-frame {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.25);
+  background: rgba(3, 3, 3, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.9),
+    0 0 25px rgba(56, 189, 248, 0.15),
+    inset 0 0 20px rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: float-casing 6s ease-in-out infinite alternate;
+}
+
+.hero-3d-wrapper:hover .hero-3d-avatar-glass-frame {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(56, 189, 248, 0.35),
+    inset 0 0 25px rgba(56, 189, 248, 0.15);
+  transform: scale(1.03);
+}
+
+.hero-3d-avatar-img {
+  width: 96%;
+  height: 96%;
+  border-radius: 50%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+.hero-3d-wrapper:hover .hero-3d-avatar-img {
+  opacity: 1;
+}
+
+/* Sci-fi Scanline Hologram Overlay */
+.hero-3d-avatar-hologram-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    rgba(56, 189, 248, 0) 50%, 
+    rgba(56, 189, 248, 0.08) 50%
+  ), linear-gradient(
+    90deg, 
+    rgba(0, 240, 255, 0.03), 
+    rgba(37, 99, 235, 0.03)
+  );
+  background-size: 100% 4px, 100% 100%;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  opacity: 0.75;
+}
+
+/* Breathing scanning line sweep */
+.hero-3d-avatar-hologram-effect::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(56, 189, 248, 0) 0%,
+    rgba(56, 189, 248, 0.15) 85%,
+    rgba(56, 189, 248, 0.25) 90%,
+    rgba(56, 189, 248, 0) 100%
+  );
+  animation: scanline-sweep 3s linear infinite;
+}
+
+@keyframes scanline-sweep {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Floating animation for casing */
+@keyframes float-casing {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(2px) rotate(-0.5deg);
+  }
+}
+
+/* Simple scaling shockwave pulse on click */
+.hero-3d-wrapper.pulsing {
+  animation: wrapper-pulse 0.2s ease-out;
+}
+
+@keyframes wrapper-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .hero-3d-wrapper {
+    width: 420px;
+    height: 420px;
+  }
+  
+  .hero-3d-avatar-glass-frame {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-3d-wrapper {
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+  }
+  
+  .hero-3d-avatar-glass-frame {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-3d-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .hero-3d-avatar-glass-frame {
+    width: 160px;
+    height: 160px;
+  }
+}

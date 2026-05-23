@@ -1,9 +1,92 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import enerlyticsImg from '../assets/Enerlytics.png';
 import tacticalTalkImg from '../assets/TacticalTalk.png';
 import airTravelImg from '../assets/AiR Travel.png';
 import './Projects.css';
+
+const ProjectCard = ({ project, index }) => {
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+
+  // Maps mouse position inside the card [0, 1] to tilt rotation degrees [-10, 10]
+  const rotateX = useTransform(y, [0, 1], [10, -10]);
+  const rotateY = useTransform(x, [0, 1], [-10, 10]);
+
+  // Maps mouse coordinates to a gorgeous dynamic radial glowing sheen
+  const glossBg = useTransform(
+    [x, y],
+    ([latestX, latestY]) => `radial-gradient(circle at ${latestX * 100}% ${latestY * 100}%, rgba(56, 189, 248, 0.15) 0%, rgba(255, 255, 255, 0) 65%)`
+  );
+
+  const handleMouseMove = (e) => {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    x.set((e.clientX - rect.left) / rect.width);
+    y.set((e.clientY - rect.top) / rect.height);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0.5);
+    y.set(0.5);
+  };
+
+  return (
+    <motion.div 
+      className="project-card-wrapper"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+    >
+      <motion.div 
+        className="project-card"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {/* Dynamic gloss overlay */}
+        <motion.div 
+          className="project-card-gloss"
+          style={{ background: glossBg }}
+        />
+
+        {/* Full-bleed background image container */}
+        <div className="project-bg-container" style={{ transform: 'translateZ(10px)' }}>
+          <img src={project.image} alt={project.title} className="project-bg-image" />
+          <div className="project-idle-overlay"></div>
+        </div>
+
+        {/* Static Content (Always visible initially at the bottom) */}
+        <div className="project-static-content" style={{ transform: 'translateZ(20px)' }}>
+          <h3 className="project-idle-title">{project.title}</h3>
+        </div>
+
+        {/* Hover Glassmorphism Slide-In details */}
+        <div className="project-hover-overlay" style={{ transform: 'translateZ(30px)' }}>
+          <div className="project-hover-content">
+            <div className="project-tech-badges">
+              {project.tech.map((tech, i) => (
+                <span key={i} className="project-tech-tag">{tech}</span>
+              ))}
+            </div>
+            
+            <h3 className="project-hover-title">{project.title}</h3>
+            <p className="project-hover-desc">{project.description}</p>
+            
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta-link">
+              View Project <span className="arrow">➔</span>
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Projects = () => {
   const projects = [
@@ -19,7 +102,7 @@ const Projects = () => {
       tech: ["Next.js", "Node.js", "MongoDB", "OpenAI"],
       description: "Full-stack web app delivering tactical football insights via an AI chatbot. Integrated real-time data scraping and statistics library.",
       image: tacticalTalkImg,
-      link: "#"
+      link: "https://tacticaltalk.vercel.app"
     },
     {
       title: "AiR Travel",
@@ -44,43 +127,7 @@ const Projects = () => {
       
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <motion.div 
-            key={index} 
-            className="project-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
-          >
-            {/* Full-bleed background image container */}
-            <div className="project-bg-container">
-              <img src={project.image} alt={project.title} className="project-bg-image" />
-              <div className="project-idle-overlay"></div>
-            </div>
-
-            {/* Static Content (Always visible initially at the bottom) */}
-            <div className="project-static-content">
-              <h3 className="project-idle-title">{project.title}</h3>
-            </div>
-
-            {/* Hover Glassmorphism Slide-In details */}
-            <div className="project-hover-overlay">
-              <div className="project-hover-content">
-                <div className="project-tech-badges">
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className="project-tech-tag">{tech}</span>
-                  ))}
-                </div>
-                
-                <h3 className="project-hover-title">{project.title}</h3>
-                <p className="project-hover-desc">{project.description}</p>
-                
-                <a href={project.link} className="project-cta-link">
-                  View Project <span className="arrow">➔</span>
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
     </section>
