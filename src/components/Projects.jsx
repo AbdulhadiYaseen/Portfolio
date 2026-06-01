@@ -3,6 +3,9 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import enerlyticsImg from '../assets/Enerlytics.png';
 import tacticalTalkImg from '../assets/TacticalTalk.png';
 import airTravelImg from '../assets/AiR Travel.png';
+import autojobImg from '../assets/autojob-logo.png';
+import phoneDirectoryImg from '../assets/phone directory logo.png';
+import keScraperImg from '../assets/KE-scrapper.png';
 import './Projects.css';
 
 const ProjectCard = ({ project, index }) => {
@@ -32,14 +35,14 @@ const ProjectCard = ({ project, index }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="project-card-wrapper"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
     >
-      <motion.div 
+      <motion.div
         className="project-card"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -50,7 +53,7 @@ const ProjectCard = ({ project, index }) => {
         }}
       >
         {/* Dynamic gloss overlay */}
-        <motion.div 
+        <motion.div
           className="project-card-gloss"
           style={{ background: glossBg }}
         />
@@ -74,10 +77,10 @@ const ProjectCard = ({ project, index }) => {
                 <span key={i} className="project-tech-tag">{tech}</span>
               ))}
             </div>
-            
+
             <h3 className="project-hover-title">{project.title}</h3>
             <p className="project-hover-desc">{project.description}</p>
-            
+
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta-link">
               View Project <span className="arrow">➔</span>
             </a>
@@ -90,6 +93,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   const projects = [
+
     {
       title: "Enerlytics — FYP",
       tech: ["Next.js", "Node.js", "Machine Learning"],
@@ -105,26 +109,47 @@ const Projects = () => {
       link: "https://tacticaltalk.vercel.app"
     },
     {
+      title: "AutoJob — AI Agent",
+      tech: ["Node.js", "Puppeteer", "Gemini API", "MongoDB"],
+      description: "An intelligent job discovery and automated recruiter outreach agent. Automates LinkedIn crawling using Puppeteer, leverages Gemini AI to extract recruiter contacts and draft personalized cover letters, and persists applications with robust anti-duplicate guards.",
+      image: autojobImg,
+      link: "https://github.com/AbdulhadiYaseen/AutoJob-Ai.git"
+    },
+    {
+      title: "KE Web Scraper & Extractor",
+      tech: ["Node.js", "Puppeteer", "PDF Parsing", "CSV"],
+      description: "A Node.js automation tool that retrieves duplicate electricity bills from the K-Electric portal using Puppeteer, downloads them as PDFs, and extracts key billing data into a structured CSV format.",
+      image: keScraperImg,
+      link: "https://github.com/AbdulhadiYaseen/KE-Bill-scrapper-and-Extractor.git"
+    },
+    {
       title: "AiR Travel",
       tech: ["Angular", "Node.js", "MySQL"],
       description: "Comprehensive Flight Management System streamlining flight scheduling, baggage tracking, check-ins, and live status monitoring.",
       image: airTravelImg,
       link: "#"
-    }
+    },
+    {
+      title: "Advanced Phone Directory",
+      tech: ["C++", "Data Structures", "File Handling", "CLI"],
+      description: "A secure console-based contact management system featuring alphanumeric hashed bucket indexing, stack-based contact recovery (recently deleted), custom sorting, and encrypted-like login safeguards.",
+      image: phoneDirectoryImg,
+      link: "https://github.com/AbdulhadiYaseen/Advanced-Phone-Directory.git"
+    },
   ];
 
   return (
     <section id="projects" className="projects-section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4 }}
       >
         Projects
       </motion.h2>
-      
+
       <div className="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} />

@@ -37,10 +37,10 @@ const Experience = () => {
     <section id="experience" className="experience-section">
       <motion.h2 
         className="section-title"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4 }}
       >
         Experience
       </motion.h2>
@@ -49,17 +49,17 @@ const Experience = () => {
           <motion.div 
             key={index} 
             className="timeline-item"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
           >
             <motion.div 
               className="timeline-dot"
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ type: "spring", stiffness: 300, delay: (index * 0.15) + 0.3 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ type: "spring", stiffness: 300, delay: (index * 0.08) + 0.15 }}
             ></motion.div>
             <div className="timeline-content glass-card">
               <div className="exp-header">

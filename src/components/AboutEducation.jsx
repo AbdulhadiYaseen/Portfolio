@@ -35,10 +35,10 @@ const AboutEducation = () => {
     <section id="education" className="education-section">
       <motion.h2 
         className="section-title"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4 }}
       >
         Academic Journey
       </motion.h2>
@@ -53,17 +53,17 @@ const AboutEducation = () => {
             <motion.div 
               key={index} 
               className={`edu-timeline-item ${isUniversity ? 'featured-item' : ''}`}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
             >
               <motion.div 
                 className={`edu-timeline-dot ${isUniversity ? 'featured-dot' : ''}`}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ type: "spring", stiffness: 300, delay: (index * 0.15) + 0.3 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ type: "spring", stiffness: 300, delay: (index * 0.08) + 0.15 }}
               ></motion.div>
               <div className={`edu-timeline-content glass-card ${isUniversity ? 'featured-card' : ''}`}>
                 <div className="edu-header">
