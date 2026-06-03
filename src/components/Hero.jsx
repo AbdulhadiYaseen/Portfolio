@@ -20,7 +20,7 @@ const itemVariants = {
   }
 };
 
-const role = "Software Engineer";
+const role = "software_engineer()";
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
@@ -42,37 +42,54 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.h3 variants={itemVariants} className="hero-greeting">Hi, I'm</motion.h3>
-        <motion.h1 variants={itemVariants} className="hero-name">Abdulhadi Yaseen</motion.h1>
-        <motion.h2 variants={itemVariants} className="hero-title">
-          <span className="typewriter-text">{currentText}</span>
-          <span className="typewriter-cursor">|</span>
-        </motion.h2>
-        <motion.p variants={itemVariants} className="hero-summary">
-          Computer Science graduate with hands-on experience in full-stack development and AI-integrated applications. Seeking
-          a Software Development role where I can utilize my technical skills, solve real-world problems, and continuously learn
-          and grow within a collaborative environment.
-        </motion.p>
-        <motion.div variants={itemVariants} className="hero-buttons">
-          <motion.a
-            href="#projects"
-            className="btn btn-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View My Work
-          </motion.a>
-          <motion.a
-            href="/AbdulHadi_Yaseen.pdf"
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Download Resume
-          </motion.a>
-        </motion.div>
+        <div className="terminal-window">
+          <div className="terminal-header">
+            <span className="dot red"></span>
+            <span className="dot yellow"></span>
+            <span className="dot green"></span>
+            <span className="terminal-title">bash - abdulhadi_yaseen.sh</span>
+          </div>
+          <div className="terminal-body">
+            <motion.h3 variants={itemVariants} className="hero-greeting">// greetings</motion.h3>
+            <motion.h1 variants={itemVariants} className="hero-name">
+              <span className="keyword">const</span> <span className="var-name">name</span> = <span className="string">"Abdulhadi Yaseen"</span>;
+            </motion.h1>
+            <motion.h2 variants={itemVariants} className="hero-title">
+              role: <span className="typewriter-text">{currentText}</span>
+              <span className="typewriter-cursor terminal-cursor">_</span>
+            </motion.h2>
+            <motion.div variants={itemVariants} className="hero-summary-block">
+              <span className="code-tag">&lt;p&gt;</span>
+              <p className="hero-summary-text">
+                Computer Science graduate with hands-on experience in full-stack
+                development and AI-integrated applications. Seeking a Software
+                Development role to solve real-world problems and continuously
+                learn and grow in a collaborative environment.
+              </p>
+              <span className="code-tag">&lt;/p&gt;</span>
+            </motion.div>
+            <motion.div variants={itemVariants} className="hero-buttons">
+              <motion.a
+                href="#projects"
+                className="btn btn-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                view_projects()
+              </motion.a>
+              <motion.a
+                href="/AbdulHadi_Yaseen.pdf"
+                className="btn btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                download_resume()
+              </motion.a>
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
 
       <motion.div

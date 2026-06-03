@@ -34,6 +34,12 @@ const ProjectCard = ({ project, index }) => {
     y.set(0.5);
   };
 
+  const ctaText = project.link === '#' || !project.link
+    ? 'in_development()'
+    : project.link.includes('github')
+      ? 'git_clone()'
+      : 'run_project()';
+
   return (
     <motion.div
       className="project-card-wrapper"
@@ -66,6 +72,7 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Static Content (Always visible initially at the bottom) */}
         <div className="project-static-content" style={{ transform: 'translateZ(20px)' }}>
+          <div className="project-meta-label">project_0{index + 1} //</div>
           <h3 className="project-idle-title">{project.title}</h3>
         </div>
 
@@ -74,16 +81,23 @@ const ProjectCard = ({ project, index }) => {
           <div className="project-hover-content">
             <div className="project-tech-badges">
               {project.tech.map((tech, i) => (
-                <span key={i} className="project-tech-tag">{tech}</span>
+                <span key={i} className="project-tech-tag">[{tech}]</span>
               ))}
             </div>
 
+            <div className="project-meta-label">project_0{index + 1} //</div>
             <h3 className="project-hover-title">{project.title}</h3>
             <p className="project-hover-desc">{project.description}</p>
 
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta-link">
-              View Project <span className="arrow">➔</span>
-            </a>
+            {project.link !== '#' ? (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta-link">
+                {ctaText} <span className="arrow">➔</span>
+              </a>
+            ) : (
+              <span className="project-cta-link disabled">
+                {ctaText}
+              </span>
+            )}
           </div>
         </div>
       </motion.div>
@@ -147,7 +161,7 @@ const Projects = () => {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
       >
-        Projects
+        MY_PROJECTS
       </motion.h2>
 
       <div className="projects-grid">

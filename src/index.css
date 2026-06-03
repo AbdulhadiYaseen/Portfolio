@@ -11,8 +11,8 @@
   --glass-border: #222222;
   --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Share Tech Mono', 'Space Mono', 'JetBrains Mono', monospace;
+  --font-body: 'JetBrains Mono', 'Space Mono', monospace;
 }
 
 .ambient-glow {
@@ -87,7 +87,8 @@ section {
   text-align: center;
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -120,4 +121,16 @@ section {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-blue);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: blink 1s step-end infinite;
+  display: inline-block;
+  font-weight: bold;
+  color: var(--accent-cyan);
 }

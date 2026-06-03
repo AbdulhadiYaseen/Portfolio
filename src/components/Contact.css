@@ -7,10 +7,11 @@
 
 .contact-desc {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #8fa0ca !important; /* comment gray */
   margin-bottom: 3rem;
   max-width: 600px;
   text-align: center;
+  font-style: italic;
 }
 
 .contact-layout {
@@ -75,16 +76,17 @@
 }
 
 .contact-value {
-  color: var(--text-primary);
+  color: #f1fa8c; /* string yellow */
   font-weight: 500;
   font-size: 1rem;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   word-break: break-all;
 }
 
 .contact-value:hover {
   color: var(--accent-cyan);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
 }
 
 .form-card {
@@ -167,7 +169,8 @@
 }
 
 .footer {
-  color: var(--text-secondary);
+  color: #8fa0ca !important; /* comment gray */
+  font-style: italic;
   font-size: 0.9rem;
   text-align: center;
 }

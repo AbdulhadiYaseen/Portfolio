@@ -40,7 +40,7 @@ const AboutEducation = () => {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
       >
-        Academic Journey
+        ACADEMIC_JOURNEY
       </motion.h2>
       <div className="edu-timeline">
         {education.map((edu, index) => {
@@ -70,6 +70,7 @@ const AboutEducation = () => {
                   <div className="edu-title-wrapper">
                     <span className="edu-icon-badge">{getIcon(edu.institution)}</span>
                     <div className="edu-title-text">
+                      <div className="edu-meta-label">edu_0{index + 1} //</div>
                       <h3>{edu.institution}</h3>
                       <h4 className="edu-degree">{edu.degree}</h4>
                     </div>
@@ -79,7 +80,7 @@ const AboutEducation = () => {
                 
                 {isUniversity ? (
                   <div className="coursework-section">
-                    <h5 className="coursework-title">Key Coursework & Focus Areas</h5>
+                    <h5 className="coursework-title">// key_coursework_focus_areas</h5>
                     <div className="coursework-tags">
                       {courses.map((course, idx) => (
                         <motion.span 

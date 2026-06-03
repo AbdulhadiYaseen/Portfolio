@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
+import {
   SiTypescript,
   SiHtml5,
   SiCss3,
@@ -11,7 +11,8 @@ import {
   SiJavascript,
   SiCplusplus,
   SiPlaywright,
-  SiSelenium
+  SiSelenium,
+  SiPuppeteer
 } from 'react-icons/si';
 import { FaBrain, FaSpider, FaRobot, FaJava } from 'react-icons/fa';
 import './Skills.css';
@@ -33,6 +34,7 @@ const Skills = () => {
     { name: "Angular", icon: <SiAngular /> },
     { name: "Playwright", icon: <SiPlaywright /> },
     { name: "Selenium", icon: <SiSelenium /> },
+    { name: "Puppeteer", icon: <SiPuppeteer /> },
     { name: "Web Scraping", icon: <FaSpider /> },
     { name: "AI Integration", icon: <FaBrain /> },
     { name: "Task Automation", icon: <FaRobot /> }
@@ -44,24 +46,24 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills-section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        Tech Stack
+        tech_stack
       </motion.h2>
-      
-      <motion.p 
+
+      <motion.p
         className="skills-subtitle"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        Web development with AI integration, web scraping, and task automation using modern JavaScript stacks.
+        // Web development with AI integration, web scraping, and task automation
       </motion.p>
 
       <div className="skills-marquee-container">
@@ -89,6 +91,8 @@ const Skills = () => {
           </div>
         </div>
       </div>
+
+      {/* <div className="skills-closing"></div> */}
     </section>
   );
 };

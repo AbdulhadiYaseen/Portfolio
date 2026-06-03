@@ -42,7 +42,7 @@ const Experience = () => {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
       >
-        Experience
+        EXPERIENCE
       </motion.h2>
       <div className="timeline">
         {experiences.map((exp, index) => (
@@ -63,6 +63,7 @@ const Experience = () => {
             ></motion.div>
             <div className="timeline-content glass-card">
               <div className="exp-header">
+                <div className="exp-meta-label">job_0{index + 1} //</div>
                 <h3>{exp.title} <span className="company-name">@ {exp.company}</span></h3>
                 <span className="exp-date">{exp.date}</span>
               </div>

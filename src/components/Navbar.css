@@ -80,3 +80,22 @@
     display: none; /* Consider adding a hamburger menu for mobile later */
   }
 }
+
+.nav-link.nav-cta {
+  border: 1.5px solid var(--accent-cyan);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.05);
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.nav-link.nav-cta:hover {
+  background: rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  color: var(--accent-cyan);
+}
+
+.nav-link.nav-cta::after {
+  display: none;
+}

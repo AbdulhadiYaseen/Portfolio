@@ -194,3 +194,19 @@
     gap: 1rem;
   }
 }
+
+.skills-closing {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--accent-cyan);
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: 800;
+  width: 100%;
+}
+
+.skills-subtitle {
+  color: #8fa0ca !important; /* comment color */
+  font-style: italic;
+  font-family: var(--font-body);
+}

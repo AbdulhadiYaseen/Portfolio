@@ -119,6 +119,14 @@
   gap: 0.3rem;
 }
 
+.edu-meta-label {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
 .edu-header h3 {
   font-size: 1.25rem;
   color: var(--text-primary);
@@ -129,7 +137,8 @@
   font-size: 1.55rem; /* Noticeably larger title */
   background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .edu-date {
