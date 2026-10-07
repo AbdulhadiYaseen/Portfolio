@@ -5,6 +5,16 @@ import './Experience.css';
 const Experience = () => {
   const experiences = [
     {
+      title: "Full Stack Developer",
+      company: "Commtel",
+      date: "August 2026 – Present",
+      points: [
+        "Built a full-stack Threat Intelligence platform (React 19, TypeScript, Node.js/Express, PostgreSQL, Prisma) with authenticated REST APIs and webhooks that sync threat reports to ResponderX.",
+        "Engineered an automated dissemination service sending scheduled email bulletins with generated executive PDFs (Nodemailer, jsPDF) and validated, defanged IOC feeds.",
+        "Implemented RBAC, audit logging, and JWT rotation with session heartbeats; containerized with Docker Compose for standard and air-gapped deployments."
+      ]
+    },
+    {
       title: "Internee Full-Stack Web Developer",
       company: "10-PEARLS",
       date: "March 2025 – May 2025",
